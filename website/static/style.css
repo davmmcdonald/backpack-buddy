@@ -1,0 +1,115 @@
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 32px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.nav-wrapper {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    padding: 8px 16px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-item a {
+    text-decoration: underline rgba(255, 255, 255, 0);
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+    transition: text-decoration 300ms, text-underline-offset 300ms;
+}
+
+.nav-item a:hover {
+    text-decoration: underline rgba(255, 255, 255, 1);
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 2px;
+}
+
+.nav-button {
+    margin-left: 16px;
+    border: 2px solid #fff;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 32px;
+    background-image: url('assets/AdobeStock_601722353.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-wrapper {
+    max-width: 1200px;
+    margin: 35vh auto 0 auto;
+    text-align: center;
+}
+
+.headline {
+    color: #fff;
+    font-family: 'Zilla Slab', serif;
+    font-size: 64px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 32px;
+    background-color: #000;
+    text-align: center;
+}
+
+.copyright {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: #fff;
+}
+
+.sub-hero {
+    padding: 32px;
+    background-image: url('assets/AdobeStock_601722353.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.sub-hero-wrapper {
+    max-width: 1200px;
+    margin: 160px auto 0 auto;
+    text-align: center;
+}
+
+.sub-headline {
+    color: #fff;
+    font-family: 'Zilla Slab', serif;
+    font-size: 40px;
+}
+
+.content {
+    padding: 64px 32px;
+}
