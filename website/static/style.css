@@ -91,6 +91,10 @@ footer {
     color: #fff;
 }
 
+.copyright a {
+    text-decoration: underline;
+}
+
 .sub-hero {
     padding: 32px;
     background-image: url('assets/AdobeStock_601722353.jpeg');
@@ -112,4 +116,50 @@ footer {
 
 .content {
     padding: 64px 32px;
+}
+
+.auth-form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.auth-instructions {
+    margin-bottom: 32px;
+    color: #888;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.auth-instructions a {
+    color: #6495ED;
+    text-decoration: underline;
+}
+
+.auth-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.auth-input {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.auth-button {
+    margin-top: 16px;
+    padding: 8px 32px;
+    background-color: #000;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
 }
