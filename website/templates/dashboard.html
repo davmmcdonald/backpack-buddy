@@ -4,15 +4,22 @@
 
 {% block content%}
 
-<p class="large-link"><a href="/create-list">+ Create New List</a></p>
-<div class="grid">
+<p class="large-link"><a href="/create-list"><i class="fa-solid fa-plus"></i> Create New List</a></p>
+{% if not user.packing_lists %}
+<div class="list-placeholder">
+    <p class="placeholder-message">No packing lists found.</p>
+</div>
+{% endif %}
+<div class="grid-4c">
     {% for list in user.packing_lists %}
-    <div class="card">
-        <p class="card-name">{{ list.name }}</p>
-        <p class="card-detail"><i class="fa-solid fa-location-arrow"></i> {{ list.location }}</p>
-        <p class="card-detail"><i class="fa-solid fa-calendar-days"></i> {{ list.date }}</p>
-        <p class="card-detail"><i class="fa-solid fa-campground"></i> {{ list.gear|length }} Items</p>
-    </div>
+    <a href="/list/{{ list.slug }}">
+        <div class="card">
+            <p class="card-name">{{ list.name }}</p>
+            <p class="card-detail"><i class="fa-solid fa-location-arrow"></i> {{ list.location }}</p>
+            <p class="card-detail"><i class="fa-solid fa-calendar-days"></i> {{ list.date }}</p>
+            <p class="card-detail"><i class="fa-solid fa-campground"></i> {{ list.gear|length }} Items</p>
+        </div>
+    </a>
     {% endfor %}
 </div>
 

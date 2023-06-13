@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import PackingList
+from .models import PackingList, Category, Gear
 from . import db
 from datetime import datetime
 import string, random
@@ -37,10 +37,22 @@ def create_list():
     return render_template('create-list.html', user=current_user)
 
 @views.route('/list/<string:slug>', methods=['GET', 'POST'])
-@login_required
 def list(slug):
     packing_list = PackingList.query.filter_by(slug=slug).first()
-    return render_template('list.html', packing_list=packing_list, user=current_user)
+    categories = Category.query.all()
+
+    if request.method == 'POST':
+        name = request.form.get('name')
+        category = request.form.get('category')
+        weight = request.form.get('weight')
+        temperature = request.form.get('temperature')
+
+        new_gear = Gear(name=name, category_id=category, weight=weight, temperature_rating=temperature)
+        packing_list.gear.append(new_gear)
+        db.session.commit()
+        return redirect(url_for('views.list', slug=slug))
+
+    return render_template('list.html', packing_list=packing_list, categories=categories, user=current_user)
 
 def generate_unique_slug(length):
     characters = string.ascii_letters + string.digits

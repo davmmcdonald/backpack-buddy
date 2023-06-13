@@ -1,21 +1,52 @@
 {% extends "default.html" %}
-{% block title %}Create New List{% endblock %}
-{% block headline %}Create New List{% endblock %}
+{% block title %}{{ packing_list.name }}{% endblock %}
+{% block headline %}{{ packing_list.name }}{% endblock %}
 
 {% block content%}
 
-<form action="" class="auth-form" method="POST">
-    <label for="name" class="auth-label">List Name</label>
-    <input type="text" name="name" id="name" class="auth-input">
-    <label for="location" class="auth-label">Location</label>
-    <input type="text" name="location" id="location" class="auth-input">
-    <label for="date" class="auth-label">Date</label>
-    <input type="date" name="date" id="date" class="auth-input">
-    <label for="distance" class="auth-label">Distance (miles)</label>
-    <input type="number" name="distance" id="distance" class="auth-input">
-    <label for="targetWeight" class="auth-label">Gear Weight Target (pounds)</label>
-    <input type="number" name="targetWeight" id="targetWeight" class="auth-input">
-    <button type="submit" class="auth-button">Save List</button>
+<div class="grid-2c">
+    <div>
+        <p class="list-detail"><i class="fa-solid fa-location-arrow"></i> {{ packing_list.location }}</p>
+        <p class="list-detail"><i class="fa-solid fa-calendar-days"></i> {{ packing_list.date }}</p>
+        <p class="list-detail"><i class="fa-solid fa-route"></i> {{ packing_list.distance }} miles</p>
+        <p class="list-detail"><i class="fa-solid fa-temperature-three-quarters"></i> 0° (day) / 0° (night)</p>
+        <p class="list-detail"><i class="fa-solid fa-campground"></i> {{ packing_list.gear|length }} items</p>
+        <p class="list-detail"><i class="fa-solid fa-weight-scale"></i> 0 / {{ packing_list.target_weight }} pounds</p>
+    </div>
+    <div>
+        <p class="large-link"><a href="/create-list"><i class="fa-regular fa-clone"></i> Duplicate List</a></p>
+        {% if user.id == packing_list.user_id %}
+        <p class="large-link"><a href="/create-list"><i class="fa-solid fa-link"></i> Copy List URL</a></p>
+        <p class="large-link"><a href="/create-list"><i class="fa-solid fa-trash-can"></i> Delete List</a></p>
+        {% endif %}
+    </div>
+</div>
+
+{% if user.id == packing_list.user_id %}
+<form action="" class="gear-form" method="POST">
+    <input type="text" name="name" id="name" placeholder="Item" class="gear-input">
+    <select name="category" id="category" class="gear-input">
+        <option value="" disabled selected>Select category</option>
+        {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="number" name="weight" id="weight" placeholder="Weight (ounces)" class="gear-input">
+    <input type="number" name="temperature" id="temperature" placeholder="Temperature Rating" class="gear-input">
+    <button type="submit" class="gear-button">Add</button>
 </form>
+{% endif %}
+
+{% for category in categories %}
+<h2 class="category">{{ category.name }}</h2>
+    {% for gear in packing_list.gear %}
+        {% if gear.category_id == category.id %}
+        <div class="gear-wrapper">
+            <input type="checkbox" name="" id="" class="gear-checkbox">
+            <p class="gear-name">{{ gear.name }}</p>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
 
 {% endblock %}
