@@ -3,10 +3,17 @@
         <a href="/"><h1 class="logo"><strong>Backpack</strong>Buddy</h1></a>
         <nav>
             <ul class="nav-wrapper">
-                <li class="nav-item"><a href="" class="">Getting Started</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="/dashboard" class="">Dashboard</a></li>
+                {% endif %}
+                <li class="nav-item"><a href="">Featured Lists</a></li>
                 <li class="nav-item"><a href="">About</a></li>
                 <li class="nav-item"><a href="">Contact</a></li>
-                <li class="nav-item nav-button"><a href="/login">Login / Signup</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-button"><a href="/logout">Logout</a></li>
+                {% else %}
+                <li class="nav-button"><a href="/login">Login / Signup</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>

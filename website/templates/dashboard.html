@@ -1,0 +1,19 @@
+{% extends "default.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block headline %}Dashboard{% endblock %}
+
+{% block content%}
+
+<p class="large-link"><a href="/create-list">+ Create New List</a></p>
+<div class="grid">
+    {% for list in user.packing_lists %}
+    <div class="card">
+        <p class="card-name">{{ list.name }}</p>
+        <p class="card-detail"><i class="fa-solid fa-location-arrow"></i> {{ list.location }}</p>
+        <p class="card-detail"><i class="fa-solid fa-calendar-days"></i> {{ list.date }}</p>
+        <p class="card-detail"><i class="fa-solid fa-campground"></i> {{ list.gear|length }} Items</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

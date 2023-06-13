@@ -1,0 +1,21 @@
+{% extends "default.html" %}
+{% block title %}Create New List{% endblock %}
+{% block headline %}Create New List{% endblock %}
+
+{% block content%}
+
+<form action="" class="auth-form" method="POST">
+    <label for="name" class="auth-label">List Name</label>
+    <input type="text" name="name" id="name" class="auth-input">
+    <label for="location" class="auth-label">Location</label>
+    <input type="text" name="location" id="location" class="auth-input">
+    <label for="date" class="auth-label">Date</label>
+    <input type="date" name="date" id="date" class="auth-input">
+    <label for="distance" class="auth-label">Distance (miles)</label>
+    <input type="number" name="distance" id="distance" class="auth-input">
+    <label for="targetWeight" class="auth-label">Gear Weight Target (pounds)</label>
+    <input type="number" name="targetWeight" id="targetWeight" class="auth-input">
+    <button type="submit" class="auth-button">Save List</button>
+</form>
+
+{% endblock %}

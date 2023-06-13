@@ -8,12 +8,11 @@
   * {
     margin: 0;
   }
-  html, body {
-    height: 100%;
-  }
   body {
+    position: relative;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
   }
   img, picture, video, canvas, svg {
     display: block;
