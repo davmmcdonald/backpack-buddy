@@ -12,6 +12,7 @@ class PackingList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     slug = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100), nullable=False)
+    image = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(100), nullable=False)
     date = db.Column(db.String, nullable=False)
     distance = db.Column(db.Float, nullable=False)
@@ -26,6 +27,10 @@ class Gear(db.Model):
     weight = db.Column(db.Float, nullable=False)
     temperature_rating = db.Column(db.Float)
     packing_lists = db.relationship('PackingList', secondary='packing_list_gear')
+
+    def is_checked(self, packing_list):
+        item = db.session.query(packing_list_gear).filter_by(gear_id=self.id, packing_list_id=packing_list.id).first()
+        return item.checked
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)

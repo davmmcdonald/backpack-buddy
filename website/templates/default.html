@@ -7,11 +7,12 @@
     <title>{% block title %}{% endblock %} | BackpackBuddy</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Zilla+Slab&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4f2a91077e.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAP6xplkO6AnaS8PutYld0ZHxxWYdvYq9c&libraries=places"></script>
 </head>
 <body>
     {% include "header.html" %}

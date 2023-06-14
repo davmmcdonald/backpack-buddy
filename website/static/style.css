@@ -235,7 +235,6 @@ footer {
     align-items: baseline;
     height: 240px;
     padding: 16px;
-    background-image: linear-gradient(transparent 25%, rgba(0, 0, 0, 0.75)), url('assets/card-images/snowy01.png');
     background-size: cover;
     background-position: center;
     border-radius: 4px;
@@ -298,6 +297,7 @@ footer {
 }
 
 .category {
+    margin-top: 32px;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -305,7 +305,6 @@ footer {
 
 .gear-form {
     display: flex;
-    margin-bottom: 32px;
 }
 
 .gear-input {
@@ -344,11 +343,27 @@ footer {
     border-radius: 4px;
 }
 
-.gear-checkbox {
-    margin-right: 16px;
+.gear-name {
+    flex: 2;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
 }
 
-.gear-name {
+.gear-detail {
+    flex: 1;
+    color: #888;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.thumbnail-preview {
+    height: 128px;
+    margin-bottom: 16px;
+}
+
+.para-body {
+    margin-bottom: 16px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }

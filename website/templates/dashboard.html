@@ -13,7 +13,7 @@
 <div class="grid-4c">
     {% for list in user.packing_lists %}
     <a href="/list/{{ list.slug }}">
-        <div class="card">
+        <div class="card" style="background-image: linear-gradient(transparent 25%, rgba(0, 0, 0, 0.75)), url('static/assets/card-images/{{ list.image }}')">
             <p class="card-name">{{ list.name }}</p>
             <p class="card-detail"><i class="fa-solid fa-location-arrow"></i> {{ list.location }}</p>
             <p class="card-detail"><i class="fa-solid fa-calendar-days"></i> {{ list.date }}</p>
