@@ -22,6 +22,24 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+        predefined_categories = categories = [
+            "Backpacking Gear",
+            "Backcountry Kitchen",
+            "Food & Water",
+            "Clothing & Footwear",
+            "Navigation",
+            "Emergency & First Aid",
+            "Health & Hygiene",
+            "Tools & Repair Items",
+            "Backpacking Extras",
+            "Personal Items"
+        ]
+        for category_name in predefined_categories:
+            category = Category.query.filter_by(name=category_name).first()
+            if not category:
+                category = Category(name=category_name)
+                db.session.add(category)
+        db.session.commit()
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
