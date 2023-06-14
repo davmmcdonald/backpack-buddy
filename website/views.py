@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from flask_login import login_required, current_user
 from .models import PackingList, Category, Gear, packing_list_gear
 from . import db
 from datetime import datetime
-import string, random, os, requests
+import string, random, os, requests, json
 
 
 views = Blueprint('views', __name__)
@@ -51,7 +51,6 @@ def list(slug):
 
     weather_api_key = '5f62ab4b1dfb49de9a7223916230604'
     url = f'http://api.weatherapi.com/v1/current.json?key={weather_api_key}&q={packing_list.location}&aqi=no'
-    print(url)
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
@@ -74,6 +73,27 @@ def list(slug):
 @views.route('/about')
 def about():
     return render_template('about.html', user=current_user)
+
+@views.route('/delete-list', methods=['POST'])
+def delete_list():
+    data = json.loads(request.data)
+    packing_list = PackingList.query.get(data['listId'])
+    if packing_list:
+        if packing_list.user_id == current_user.id:
+            db.session.delete(packing_list)
+            db.session.commit()
+    return jsonify({})
+
+@views.route('/delete-gear', methods=['POST'])
+def delete_gear():
+    data = json.loads(request.data)
+    packing_list = PackingList.query.get(data['listId'])
+    gear = Gear.query.get(data['gearId'])
+    if packing_list:
+        if gear in packing_list.gear:
+            packing_list.gear.remove(gear)
+            db.session.commit()
+    return jsonify({})
 
 def generate_unique_slug(length):
     characters = string.ascii_letters + string.digits

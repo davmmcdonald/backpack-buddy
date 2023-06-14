@@ -18,6 +18,27 @@ function initAutocomplete() {
 }
 google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
+function deleteList(deleteListButton) {
+    listId = deleteListButton.dataset.listId;
+    fetch('/delete-list', {
+        method: "POST",
+        body: JSON.stringify({ listId: listId })
+    }).then((_res) => {
+        window.location.href = '/dashboard';
+    });
+}
+
+function deleteGear(deleteGearButton) {
+    gearId = deleteGearButton.dataset.gearId;
+    listId = deleteGearButton.dataset.listId
+    fetch('/delete-gear', {
+        method: "POST",
+        body: JSON.stringify({ gearId: gearId, listId: listId })
+    }).then((_res) => {
+        window.location.reload();
+    });
+}
+
 // const categories = document.querySelectorAll('.category');
 // categories.forEach(element => {
 //     if (!element.nextElementSibling.classList.contains('card-wrapper')) {

@@ -330,6 +330,7 @@ footer {
 
 .gear-wrapper {
     display: flex;
+    align-items: center;
     margin-bottom: 8px;
     padding: 4px 8px;
     border: 1px solid #eee;
@@ -366,4 +367,13 @@ footer {
     margin-bottom: 16px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+}
+
+.delete-button {
+    color: #888;
+    transition: color 300ms;
+}
+
+.delete-button:hover {
+    color: #000;
 }
