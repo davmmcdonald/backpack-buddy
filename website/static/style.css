@@ -186,6 +186,7 @@ footer {
 }
 
 .auth-label {
+    width: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -449,5 +450,14 @@ footer {
     }
     .header-wrapper {
         flex-direction: column;
+    }
+    .headline {
+        font-size: 40px;
+    }
+    .gear-form {
+        flex-direction: column;
+    }
+    .grid-4c {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

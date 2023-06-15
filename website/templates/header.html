@@ -2,18 +2,32 @@
     <div class="header-wrapper">
         <a href="/"><h1 class="logo"><strong>Backpack</strong>Buddy</h1></a>
         <nav>
-            <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
             <ul class="nav-wrapper">
+                {% if user.is_authenticated %}
+                <li class="list-item"><a href="/dashboard">Dashboard</a></li>
+                {% endif %}
                 <li class="list-item"><a href="/featured">Featured Lists</a></li>
                 <li class="list-item"><a href="/about">About</a></li>
                 <li class="list-item"><a href="/contact">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li class="list-button"><a href="/logout">Login</a></li>
+                {% else %}
                 <li class="list-button"><a href="/login">Login</a></li>
+                {% endif %}
             </ul>
             <ul class="mobile-wrapper">
+                {% if user.is_authenticated %}
+                <li><a href="/dashboard">Dashboard</a></li>
+                {% endif %}
                 <li><a href="/featured">Featured Lists</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/logout">Login</a></li>
+                {% else %}
                 <li><a href="/login">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>

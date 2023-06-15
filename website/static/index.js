@@ -1,3 +1,13 @@
+ const mobileMenu = document.querySelector('.mobile-wrapper');
+ console.log(mobileMenu)
+function toggleMobileMenu() {
+    if (mobileMenu.style.display == 'flex') {
+        mobileMenu.style.display = 'none';
+    } else {
+        mobileMenu.style.display = 'flex'
+    }
+}
+
 function dismissAlert(button) {
     button.parentNode.remove();
 }
