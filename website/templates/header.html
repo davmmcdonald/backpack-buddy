@@ -2,18 +2,18 @@
     <div class="header-wrapper">
         <a href="/"><h1 class="logo"><strong>Backpack</strong>Buddy</h1></a>
         <nav>
+            <button class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
             <ul class="nav-wrapper">
-                {% if user.is_authenticated %}
-                <li class="nav-item"><a href="/dashboard" class="">Dashboard</a></li>
-                {% endif %}
-                <li class="nav-item"><a href="/featured">Featured Lists</a></li>
-                <li class="nav-item"><a href="/about">About</a></li>
-                <li class="nav-item"><a href="/contact">Contact</a></li>
-                {% if user.is_authenticated %}
-                <li class="nav-button"><a href="/logout">Logout</a></li>
-                {% else %}
-                <li class="nav-button"><a href="/login">Login / Signup</a></li>
-                {% endif %}
+                <li class="list-item"><a href="/featured">Featured Lists</a></li>
+                <li class="list-item"><a href="/about">About</a></li>
+                <li class="list-item"><a href="/contact">Contact</a></li>
+                <li class="list-button"><a href="/login">Login</a></li>
+            </ul>
+            <ul class="mobile-wrapper">
+                <li><a href="/featured">Featured Lists</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
     </div>

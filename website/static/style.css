@@ -25,46 +25,75 @@ header {
     text-transform: uppercase;
 }
 
-.nav-wrapper {
+nav {
     display: flex;
-    list-style: none;
+    align-items: center;
 }
 
-.nav-item {
-    padding: 8px 16px;
+.mobile-toggle {
+    display: none;
+    padding: 16px;
     color: #fff;
+    background: none;
+    border: none;
+}
+
+.nav-wrapper {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.mobile-wrapper {
+    display: none;
+    flex-direction: column;
+    padding: 16px;
+    list-style: none;
+    align-items: center;
+    background-color: #fff;
+    color: #243f3c;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.nav-item a {
+.list-item {
+    padding: 8px 16px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.list-item a {
     text-decoration: underline rgba(255, 255, 255, 0);
     text-underline-offset: 0.2em;
     text-decoration-thickness: 2px;
     transition: text-decoration 300ms, text-underline-offset 300ms;
 }
 
-.nav-item a:hover {
+.list-item a:hover {
     text-decoration: underline rgba(255, 255, 255, 1);
-    text-underline-offset: 0.4em;
+    text-underline-offset: 0.3em;
     text-decoration-thickness: 2px;
 }
 
-.nav-button {
+.list-button {
     margin-left: 16px;
     padding: 8px 16px;
     border: 2px solid #fff;
     color: #fff;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     transition: background-color 300ms, color 300ms;
 }
 
-.nav-button:hover {
+.list-button:hover {
     background-color: #fff;
     color: #243f3c;
 }
@@ -406,4 +435,19 @@ footer {
 .required {
     color: #ff0000;
     font-weight: 700;
+}
+
+@media only screen and (max-width: 800px) {
+    .mobile-toggle {
+        display: block;
+    }
+    .nav-wrapper {
+        display: none;
+    }
+    nav {
+        flex-direction: column;
+    }
+    .header-wrapper {
+        flex-direction: column;
+    }
 }
