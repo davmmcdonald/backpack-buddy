@@ -14,7 +14,7 @@
         <p class="list-detail"><i class="fa-solid fa-weight-scale"></i> {{ total_weight }}lb / {{ packing_list.target_weight }}lb</p>
     </div>
     <div>
-        <p class="large-link"><a href="/create-list"><i class="fa-regular fa-clone"></i> Duplicate List</a></p>
+        <!-- <p class="large-link"><a href="/create-list"><i class="fa-regular fa-clone"></i> Duplicate List</a></p> -->
         <p class="large-link"><a href="javascript: void(0)" onclick="copyUrl()"><i class="fa-solid fa-link"></i> Copy List URL</a></p>
         {% if user.id == packing_list.user_id %}
         <p class="large-link"><a href="javascript: void(0)" data-list-id="{{ packing_list.id }}" onclick="deleteList(this)"><i class="fa-solid fa-trash-can"></i> Delete List</a></p>

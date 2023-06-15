@@ -16,7 +16,9 @@ header {
 }
 
 .logo {
-    color: #fff;
+    padding: 2px 8px;
+    background-color: #fff;
+    color: #243f3c;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 400;
@@ -131,6 +133,7 @@ footer {
 }
 
 .content-wrapper {
+    padding-bottom: 32px;
     max-width: 1200px;
     margin: 0 auto;
 }
