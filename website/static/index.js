@@ -8,9 +8,9 @@ function copyUrl() {
     alert('List URL copied to clipboard!');
 }
 
-function refreshImage(imageSelector) {
-    imageSelector.nextElementSibling.src = `static/assets/card-images/${imageSelector.value}`;
-}
+// function refreshImage(imageSelector) {
+//     imageSelector.nextElementSibling.src = `static/assets/card-images/${imageSelector.value}`;
+// }
 
 function initAutocomplete() {
     const locationInput = document.getElementById('location');

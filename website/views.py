@@ -20,28 +20,27 @@ def dashboard():
 @views.route('/create-list', methods=['GET', 'POST'])
 @login_required
 def create_list():
-    image_folder = 'website/static/assets/card-images'
-    image_filenames = []
-    for filename in os.listdir(image_folder):
-        if filename.endswith('.jpg') or filename.endswith('.png'):
-            image_filenames.append(filename)
+    # image_folder = 'website/static/assets/card-images'
+    # image_filenames = []
+    # for filename in os.listdir(image_folder):
+    #     if filename.endswith('.jpg') or filename.endswith('.png'):
+    #         image_filenames.append(filename)
 
     if request.method == 'POST':
         name = request.form.get('name')
-        image = request.form.get('image')
         location = request.form.get('location')
         date = request.form.get('date')
         distance = request.form.get('distance')
         target_weight = request.form.get('targetWeight')
         slug = generate_unique_slug(8)
 
-        new_packing_list = PackingList(name=name, image=image, location=location, date=date, distance=distance, target_weight=target_weight, user_id=current_user.id, slug=slug)
+        new_packing_list = PackingList(name=name, location=location, date=date, distance=distance, target_weight=target_weight, user_id=current_user.id, slug=slug)
         db.session.add(new_packing_list)
         db.session.commit()
         flash('List added successfully!', category='success')
         return redirect(url_for('views.dashboard'))
 
-    return render_template('create-list.html', image_filenames=image_filenames, user=current_user)
+    return render_template('create-list.html', user=current_user)
 
 @views.route('/list/<string:slug>', methods=['GET', 'POST'])
 def list(slug):
