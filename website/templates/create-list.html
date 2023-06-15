@@ -7,14 +7,13 @@
 <form action="" class="auth-form" method="POST">
     <label for="name" class="auth-label">List Name</label>
     <input type="text" name="name" id="name" class="auth-input">
-    <!-- <label for="image" class="auth-label">Thumbnail Image</label>
-    <select name="image" id="image" class="auth-input" onchange="refreshImage(this)">
-        <option value="{{ image_filenames[0] }}" selected>{{ image_filenames[0] }}</option>
-        {% for file in image_filenames[1:] %}
-        <option value="{{ file }}">{{ file }}</option>
+    <label for="image" class="auth-label">Thumbnail Images</label>
+    <select name="image" id="image" class="auth-input">
+        {% for filename in image_files %}
+        <option value="{{ filename }}">{{ filename }}</option>
         {% endfor %}
     </select>
-    <img src="static/assets/card-images/{{ image_filenames[0] }}" alt="" class="thumbnail-preview"> -->
+    <img src="static/assets/card-images/{{ image_files[0] }}" alt="" class="thumbnail-preview">
     <label for="location" class="auth-label">Location (City, State)</label>
     <input type="text" name="location" id="location" class="auth-input">
     <label for="date" class="auth-label">Date</label>
