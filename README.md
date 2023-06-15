@@ -2,7 +2,7 @@
 
 BackpackBuddy is a web application designed to help outdoor enthusiasts plan and organize their backpacking trips more efficiently. It provides a user-friendly interface for creating packing lists, managing gear items, and tracking essential trip details.
 
-[Check It Out Here](www.backpackbuddy.app) :point_left:
+[Check It Out Here](https://www.backpackbuddy.app/) :point_left:
 
 ## Technologies Used
 
