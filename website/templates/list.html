@@ -15,8 +15,8 @@
     </div>
     <div>
         <p class="large-link"><a href="/create-list"><i class="fa-regular fa-clone"></i> Duplicate List</a></p>
-        {% if user.id == packing_list.user_id %}
         <p class="large-link"><a href="javascript: void(0)" onclick="copyUrl()"><i class="fa-solid fa-link"></i> Copy List URL</a></p>
+        {% if user.id == packing_list.user_id %}
         <p class="large-link"><a href="javascript: void(0)" data-list-id="{{ packing_list.id }}" onclick="deleteList(this)"><i class="fa-solid fa-trash-can"></i> Delete List</a></p>
         {% endif %}
     </div>
@@ -24,15 +24,15 @@
 
 {% if user.id == packing_list.user_id %}
 <form action="" class="gear-form" method="POST">
-    <input type="text" name="name" id="name" placeholder="Item" class="gear-input">
-    <select name="category" id="category" class="gear-input">
+    <input type="text" name="name" id="name" placeholder="Item" class="gear-input" required>
+    <select name="category" id="category" class="gear-input" required>
         <option value="" disabled selected>Select category</option>
         {% for category in categories %}
         <option value="{{ category.id }}">{{ category.name }}</option>
         {% endfor %}
     </select>
-    <input type="number" name="weight" id="weight" placeholder="Weight (oz)" class="gear-input">
-    <input type="number" name="temperature" id="temperature" placeholder="Temperature Rating (F)" class="gear-input">
+    <input type="number" name="weight" id="weight" placeholder="Weight (oz)" class="gear-input" required>
+    <input type="number" name="temperature" id="temperature" placeholder="Temperature Rating (F)" class="gear-input" required>
     <button type="submit" class="gear-button">Add</button>
 </form>
 {% endif %}
@@ -45,13 +45,17 @@
             <p class="gear-name">{{ gear.name }}</p>
             <p class="gear-detail">Weight: {% if gear.weight %}{{ gear.weight }}oz{% else %}N/A{% endif %}</p>
             <p class="gear-detail">Temperature Rating: {% if gear.temperature_rating %}{{ gear.temperature_rating }}°F{% else %}N/A{% endif %}</p>
+            {% if user.id == packing_list.user_id %}
             <a href="javascript: void(0)" data-list-id="{{ packing_list.id }}" data-gear-id="{{ gear.id }}" onclick="deleteGear(this)"><i class="fa-solid fa-trash-can delete-button"></i></a>
+            {% endif %}
         </div>
         {% endif %}
     {% endfor %}
-<div class="gear-placeholder">
-    <p class="placeholder-message">Add more gear!</p>
-</div>
+    {% if user.id == packing_list.user_id %}
+    <div class="gear-placeholder">
+        <p class="placeholder-message">Add more gear!</p>
+    </div>
+    {% endif %}
 {% endfor %}
 
 {% endblock %}

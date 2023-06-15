@@ -7,13 +7,13 @@
 <form action="" class="auth-form" method="POST">
     <p class="auth-instructions">Already have a BackpackBuddy account? <a href="/login">Login</a></p>
     <label for="displayName" class="auth-label">Display Name</label>
-    <input type="text" name="displayName" id="displayName" class="auth-input">
+    <input type="text" name="displayName" id="displayName" class="auth-input" required>
     <label for="email" class="auth-label">Email</label>
-    <input type="text" name="email" id="email" class="auth-input">
+    <input type="text" name="email" id="email" class="auth-input" required>
     <label for="password" class="auth-label">Password</label>
-    <input type="password" name="password" id="password" class="auth-input">
+    <input type="password" name="password" id="password" class="auth-input" required>
     <label for="passwordConfirm" class="auth-label">Confirm Password</label>
-    <input type="password" name="passwordConfirm" id="passwordConfirm" class="auth-input">
+    <input type="password" name="passwordConfirm" id="passwordConfirm" class="auth-input" required>
     <button type="submit" class="auth-button">Signup</button>
 </form>
 

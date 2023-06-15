@@ -8,6 +8,10 @@ function copyUrl() {
     alert('List URL copied to clipboard!');
 }
 
+function refreshImage(imageSelect) {
+    imageSelect.nextElementSibling.src = `static/assets/card-images/${imageSelect.value}`;
+}
+
 function initAutocomplete() {
     const locationInput = document.getElementById('location');
     const autocomplete = new google.maps.places.Autocomplete(locationInput);

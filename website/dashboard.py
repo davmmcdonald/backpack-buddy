@@ -18,17 +18,18 @@ def create_list():
 
     if request.method == 'POST':
         name = request.form.get('name')
+        image = request.form.get('image')
         location = request.form.get('location')
         date = request.form.get('date')
         distance = request.form.get('distance')
         target_weight = request.form.get('targetWeight')
         slug = generate_unique_slug(8)
 
-        new_packing_list = PackingList(name=name, location=location, date=date, distance=distance, target_weight=target_weight, user_id=current_user.id, slug=slug)
+        new_packing_list = PackingList(name=name, image=image, location=location, date=date, distance=distance, target_weight=target_weight, user_id=current_user.id, slug=slug)
         db.session.add(new_packing_list)
         db.session.commit()
         flash('List added successfully!', category='success')
-        return redirect(url_for('dashboard.dashboard'))
+        return redirect(url_for('views.dashboard'))
 
     return render_template('create-list.html', image_files=image_files, user=current_user)
 

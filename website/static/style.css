@@ -230,11 +230,8 @@ footer {
 
 .card {
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: baseline;
+    align-items: end;
     height: 240px;
-    padding: 16px;
     background-size: cover;
     background-position: center;
     border-radius: 4px;
@@ -247,7 +244,15 @@ footer {
     transform: translateY(-8px);
 }
 
+.card-inner {
+    width: 100%;
+    padding: 16px;
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+}
+
 .card-name {
+    display: inline-block;
+    margin-bottom: 8px;
     padding: 0 4px;
     background-color: #fff;
     color: #000;
@@ -365,8 +370,13 @@ footer {
 
 .para-body {
     margin-bottom: 16px;
+    color: #444;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+}
+
+.para-body strong {
+    color: #000;
 }
 
 .delete-button {
@@ -376,4 +386,21 @@ footer {
 
 .delete-button:hover {
     color: #000;
+}
+
+.about-image {
+    float: left;
+    max-height: 320px;
+    margin: 0 16px 16px 0;
+    border-radius: 4px;
+}
+
+.btn-center {
+    display: block;
+    margin: 0 auto;
+}
+
+.required {
+    color: #ff0000;
+    font-weight: 700;
 }

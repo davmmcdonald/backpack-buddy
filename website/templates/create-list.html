@@ -6,22 +6,22 @@
 
 <form action="" class="auth-form" method="POST">
     <label for="name" class="auth-label">List Name</label>
-    <input type="text" name="name" id="name" class="auth-input">
+    <input type="text" name="name" id="name" class="auth-input" required>
     <label for="image" class="auth-label">Thumbnail Images</label>
-    <select name="image" id="image" class="auth-input">
+    <select name="image" id="image" class="auth-input" onchange="refreshImage(this)" required>
         {% for filename in image_files %}
         <option value="{{ filename }}">{{ filename }}</option>
         {% endfor %}
     </select>
     <img src="static/assets/card-images/{{ image_files[0] }}" alt="" class="thumbnail-preview">
     <label for="location" class="auth-label">Location (City, State)</label>
-    <input type="text" name="location" id="location" class="auth-input">
+    <input type="text" name="location" id="location" class="auth-input" required>
     <label for="date" class="auth-label">Date</label>
-    <input type="date" name="date" id="date" class="auth-input">
+    <input type="date" name="date" id="date" class="auth-input" required>
     <label for="distance" class="auth-label">Distance (miles)</label>
-    <input type="number" name="distance" id="distance" class="auth-input">
+    <input type="number" name="distance" id="distance" class="auth-input" required>
     <label for="targetWeight" class="auth-label">Gear Weight Target (pounds)</label>
-    <input type="number" name="targetWeight" id="targetWeight" class="auth-input">
+    <input type="number" name="targetWeight" id="targetWeight" class="auth-input" required>
     <button type="submit" class="auth-button">Save List</button>
 </form>
 
